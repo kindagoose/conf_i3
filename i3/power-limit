@@ -1,5 +1,0 @@
-#!/bin/sh -e
-
-exec /usr/bin/nvidia-smi -pl 80
-
-exit 0
