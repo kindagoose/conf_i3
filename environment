@@ -1,0 +1,57 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+
+#
+# vulkan
+#
+
+VKD3D_SHADER_DEBUG=none
+DXVK_CONFIG_FILE=/home/hello/dxvk.conf
+
+#LIBVA_DRIVER_NAME=vdpau
+#VDPAU_DRIVER=nvidia
+
+PROTON_ENABLE_NVAPI=1
+PROTON_HIDE_NVIDIA_GPU=0
+#DXVK_NVAPI_DRIVER_VERSION=49729
+#DXVK_NVAPI_ALLOW_OTHER_DRIVERS=1
+#LFX=1
+
+#
+# overlays
+#
+
+NODEVICE_SELECT=1
+MANGOHUD=1
+MANGOHUD_DLSYM=1
+
+#ENABLE_VKBASALT=1
+#VKBASALT_CONFIG_FILE=/home/hello/vkBasalt.conf
+
+#WINE_FULLSCREEN_FSR=1 
+#WINE_FULLSCREEN_FSR_STRENGTH=10
+#VKD3D_CONFIG=dxr11
+#WINE_FULLSCREEN_FAKE_CURRENT_RES=2560x1440
+
+#
+# scaling
+#
+
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+#GDK_SCALE=2
+
+#
+# wayland
+#
+
+#GBM_BACKEND=nvidia-drm
+#__GLX_VENDOR_LIBRARY_NAME=nvidia
+#WLR_NO_HARDWARE_CURSORS=1
+
+#QT_QPA_PLATFORM=wayland
+
+#$libdir/ladspa:/usr/local/lib/ladspa:/usr/lib/ladspa
+
