@@ -1,1 +1,1 @@
-general config with some scripts for tablet, monitoring and keyboard layout
+general config for my beep boop
