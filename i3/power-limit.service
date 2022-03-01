@@ -1,0 +1,8 @@
+[Unit]
+Description=Power Limit Service
+
+[Service]
+ExecStart=/home/hello/.config/i3/power-limit.sh
+
+[Install]
+WantedBy=multi-user.target
