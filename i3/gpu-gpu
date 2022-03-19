@@ -1,5 +1,0 @@
-#!/bin/sh -e
-
-nvidia-smi -q -d utilization | tr -s ' ' | grep "Gpu"
-
-exit 0
