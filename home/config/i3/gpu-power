@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+nvidia-smi -q -d POWER | tr -s ' ' | grep "Power Draw" | awk '{print $4,$5}'
+
+exit 0
