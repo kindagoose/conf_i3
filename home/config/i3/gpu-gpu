@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader --id=0
+#nvidia-smi -q -d utilization | tr -s ' ' | grep "Gpu"
+
+exit 0

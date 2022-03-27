@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+sensors | tr -s ' ' | grep "fan2" | awk '{print $2}'
+
+exit 0

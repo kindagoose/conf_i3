@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+nvidia-smi -q -d utilization | tr -s ' ' | grep "Encoder"
+
+exit 0
