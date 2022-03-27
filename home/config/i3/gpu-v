@@ -1,5 +1,0 @@
-#!/bin/sh -e
-
-nvidia-smi -q -d Voltage | tr -s ' ' | grep "Graphics" | awk '{print $3,$4}'
-
-exit 0
