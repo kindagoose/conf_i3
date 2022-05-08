@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+nvidia-smi --query-gpu=memory.free --format=csv,noheader --id=0
+#nvidia-smi -q -d memory | tr -s ' ' | grep "Free" | head -n 1
+
+exit 0

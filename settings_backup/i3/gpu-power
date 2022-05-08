@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+nvidia-smi --query-gpu=power.draw --format=csv,noheader --id=0
+#nvidia-smi -q -d POWER | tr -s ' ' | grep "Power Draw" | awk '{print $4,$5}'
+
+exit 0
