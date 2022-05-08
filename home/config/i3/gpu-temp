@@ -1,6 +1,0 @@
-#!/bin/sh -e
-
-nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader --id=0
-#nvidia-smi -q -d temperature | tr -s ' ' | grep "GPU Current Temp" | awk '{print $5,$6}'
-
-exit 0
