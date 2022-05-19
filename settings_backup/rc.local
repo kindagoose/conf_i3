@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+#modprobe v4l2loopback
+nvidia-smi -pl 200
+nvidia-smi -gtt 65
+#alsactl -f /home/hello/.config/asound.state restore
+
+exit 0
