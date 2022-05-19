@@ -1,5 +1,0 @@
-#!/bin/sh -e
-
-sensors | tr -s ' ' | grep "in0" | awk '{print $2,$3}'
-
-exit 0
