@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+nvidia-smi -pl 200
+nvidia-smi -gtt 70
+modprobe v4l2loopback video_nr=0 card_label="v4l2" exclusive_caps=1 max_buffers=2
+
+exit 0
