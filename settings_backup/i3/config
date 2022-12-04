@@ -1,0 +1,267 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+################################
+################################
+################################
+
+
+	##	BINDS		##
+
+bindsym $mod+r mode "resize"
+bindsym $mod+ctrl+c move absolute position center
+bindsym $mod+ctrl+1 move position 0 432
+bindsym $mod+ctrl+0 resize set 3200 1800
+bindsym $mod+ctrl+2 resize set 2128 2128
+bindsym $mod+ctrl+4 resize set 2837 2128
+bindsym $mod+ctrl+8 resize set 1920 1080
+bindsym $mod+ctrl+9 resize set 3072 1728
+
+bindsym --release XF86Explorer exec --no-startup-id nautilus
+bindsym --release XF86Tools exec --no-startup-id "gnome-screenshot -w"
+bindsym --release $mod+XF86Tools exec --no-startup-id "gnome-screenshot -a"
+bindsym --release $mod+shift+XF86Tools exec --no-startup-id gnome-screenshot
+
+bindsym $mod+O exec --no-startup-id "OBS_USE_EGL=1 obs --profile 864 --collection 864"
+bindsym $mod+shift+O exec --no-startup-id "OBS_USE_EGL=1 obs --profile kindarecord --collection kindarecord --startreplaybuffer --multi"
+bindsym $mod+C exec --no-startup-id "nice -n 19 chromium"
+bindsym $mod+Delete exec --no-startup-id gnome-system-monitor
+bindsym $mod+N exec --no-startup-id nvidia-settings
+bindsym $mod+S exec --no-startup-id "GDK_SCALE=2 steam -console"
+#steam://open/console
+bindsym --release $mod+XF86Sleep exec --no-startup-id /home/hello/.config/i3/bt.sh
+ 
+bindsym --release XF86AudioMute exec --no-startup-id amixer set Master toggle
+bindsym --release XF86AudioRaiseVolume exec --no-startup-id amixer set Capture cap
+bindsym --release XF86AudioLowerVolume exec --no-startup-id amixer set Capture nocap
+bindsym --release XF86AudioPlay exec "playerctl --player=pragha,firefox play-pause"
+bindsym --release XF86AudioNext exec "playerctl --player=pragha,firefox next"
+bindsym --release XF86AudioPrev exec "playerctl --player=pragha,firefox previous"
+
+
+	##	STUFF		##
+	
+exec --no-startup-id /usr/lib/gsd-xsettings
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+
+	##	GPU		##
+
+exec --no-startup-id /usr/bin/nvidia-settings -a GPUGraphicsClockOffsetAllPerformanceLevels=195  -a GPUMemoryTransferRateOffsetAllPerformanceLevels=1600
+
+
+	##	AUTOSTART	##
+
+exec --no-startup-id hsetroot -solid '#111111'
+exec --no-startup-id "GDK_SCALE=2 steam -console"
+exec --no-startup-id nice -n 19 telegram-desktop 
+exec --no-startup-id nice -n 19 discord
+exec --no-startup-id nice -n 19 chromium
+exec --no-startup-id nice -n 19 pavucontrol
+
+
+	##	ASSIGN		##
+
+assign [class="telegram-desktop"]	$ws1
+assign [class="discord"]		$ws1
+assign [title="Chromium"]		$ws2
+assign [title="Volume Control"]		$ws4
+assign [class="obs"]			$ws4
+assign [title="DroidCam Client"]	$ws4
+assign [title="Steam"]			$ws5
+assign [class="Steam"]			$ws5
+assign [class="firefox"]		$ws6
+assign [class="Blender"]		$ws9
+assign [class="Gimp"]			$ws10
+assign [class="steam_app_374320"]	$ws3
+assign [class="steam_app_1245620"]	$ws3
+assign [class="steam_app_979690"]	$ws3
+assign [class="steam_app_570940"]	$ws3
+assign [class="gamescope"]		$ws7
+assign [class="valheim.x86_64"]		$ws3
+
+
+	##	DEFAULTS	##
+	
+default_border none
+default_floating_border none
+
+floating_modifier $mod
+floating_minimum_size 320 x 240
+#floating_maximum_size 3200 x 2128
+
+
+	##	CUSTOM		##
+
+for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="mpv"] move absolute position center
+for_window [class="File-roller"] floating enable
+for_window [class="File-roller"] move absolute position center
+for_window [class="Org.gnome.NautilusPreviewer"] floating disable
+for_window [class="Org.gnome.NautilusPreviewer"] move left
+
+for_window [class="steam_app_374320"] floating disable
+for_window [class="steam_app_1245620"] floating disable
+for_window [class="steam_app_979690"] floating disable
+for_window [class="valheim.x86_64"] floating disable
+for_window [class="steam_app_570940"] floating disable
+
+
+	##	I3WM		##
+	
+bindsym $mod+P exec --no-startup-id gamemoderun mangohud strangle 59.99 nice -n -5 taskset -c 10-11 picom
+bindsym $mod+Shift+P exec --no-startup-id killall picom
+exec --no-startup-id gamemoderun mangohud strangle 59.99 nice -n -5 taskset -c 10-11 picom
+
+
+
+
+################################
+################################
+################################
+
+
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Centarell Regular 14
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec kitty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+bindsym $mod+space exec --no-startup-id bemenu-run --fn "monospace 24"
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Tab focus mode_toggle
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1.talk"
+set $ws2 "2.chromium"
+set $ws3 "3.stream"
+set $ws4 "4.obs"
+set $ws5 "5.steam"
+set $ws6 "6.firefox"
+set $ws7 "7."
+set $ws8 "8."
+set $ws9 "9."
+set $ws10 "10."
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Escape exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        #bindsym j resize shrink width 10 px or 10 ppt
+        #bindsym k resize grow height 10 px or 10 ppt
+        #bindsym l resize shrink height 10 px or 10 ppt
+        #bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 64 px 
+        bindsym Down resize grow height 64 px 
+        bindsym Up resize shrink height 64 px 
+        bindsym Right resize grow width 64 px 
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+set $bg-color 	         #1c1c1c
+set $inactive-bg-color   #353535
+set $text-color          #eeeeec
+set $inactive-text-color #919190
+set $urgent-bg-color     #7f2626
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #1c1c1c
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #1c1c1c
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #1c1c1c
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #1c1c1c
+
+hide_edge_borders both
+
+# bar
+bar {
+	position top
+  	status_command nice -n 19 i3blocks -c /home/hello/.config/i3/i3blocks.conf
+	colors {
+		background $bg-color
+	    	separator $inactive-text-color
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+}
